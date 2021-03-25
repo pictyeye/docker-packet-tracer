@@ -2,7 +2,8 @@ FROM ubuntu:18.04
 
 MAINTAINER frzifus benne@klimlive.de
 
-RUN apt-get update && apt-get install -y tar wget xauth libqt5webkit5 libqt5xml5 libqt5multimedia5 libqt5script5 libqt5scripttools5 qt-at-spi sudo libnss3 libxss1 libasound2 vim less
+RUN apt-get update && apt-get install -y --no-install-recommends wget xauth libqt5webkit5 libqt5xml5 libqt5multimedia5 libqt5script5 libqt5scripttools5 qt-at-spi sudo libnss3 libxss1 libasound2 ca-certificates libdouble-conversion1 libpulse0 libharfbuzz0b libxml2 libxslt1.1 libgl1 && apt-get clean && rm -rf /var/lib/apt/lists/*
+
 COPY PacketTracer_730_amd64.deb.sha256 /tmp/PacketTracer_730_amd64.deb.sha256
 
 RUN export uid=1000 gid=1000 \
